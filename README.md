@@ -1,4 +1,11 @@
-# Getting Started with Create React App
+# QR Code Generator
+
+## Screenshots
+![img](https://github.com/nemzyxt/qrcode-generator/blob/main/screenshots/pic1.png?raw=true)
+
+![img](https://github.com/nemzyxt/qrcode-generator/blob/main/screenshots/pic2.png?raw=true)
+
+![img](https://github.com/nemzyxt/qrcode-generator/blob/main/screenshots/pic3.png?raw=true)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

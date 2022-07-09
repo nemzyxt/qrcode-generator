@@ -1,23 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+// Author : Nemuel Wainaina
 
-function App() {
+import { useState } from "react"
+import QRCode from 'qrcode'
+
+const App = () =>  {
+  const [url, setURL] = useState('')
+  const [qrCode, setQrCode] = useState('')
+
+  const generateQRCode = () => {
+    QRCode.toDataURL(url, {
+      width: 1000,
+      margin: 2
+    }, (err, url) => {
+      if(err) return console.log(err)
+
+      // no error in generating the QR code
+      console.log(url)
+      setQrCode(url)
+    })
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h2>QR Code Generator</h2>
       </header>
+      <input 
+        type="text" 
+        value={url} 
+        onChange={(e) => {
+          setURL(e.target.value)
+        }}
+        placeholder="eg. www.google.com" />
+      &nbsp;&nbsp;&nbsp;
+      <button onClick={generateQRCode}>Generate</button>
+      <br />
+      <br />
+      {
+        qrCode 
+          &&
+        <>
+          <img src={qrCode} />
+          <br />
+          <a href={qrCode} download="qrcode.png">Download</a>
+        </>
+      }
     </div>
   );
 }
